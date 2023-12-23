@@ -6,10 +6,12 @@ import { HiOutlineHome } from "react-icons/hi";
 import { SiOpenaccess } from "react-icons/si";
 import { CgProfile } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import HamburgerButton from "../common/hamburgerMenu/HamburgerButton";
 
 const Sidebar: FC = () => {
   const [open, setOpen] = useState(true);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const location = useLocation();
 
@@ -17,9 +19,26 @@ const Sidebar: FC = () => {
     { title: "Dashboard", path: "/dashboard", src: <AiFillPieChart /> },
     { title: "Home", path: "/", src: <HiOutlineHome /> },
     { title: "Profile", path: "/profile", src: <CgProfile /> },
-    { title: "Settings", path: "/settings", src: <CiSettings /> },
+    {
+      title: "Settings",
+      startIcon: <CiSettings />,
+      endIcon: settingsOpen ? <FaAngleUp /> : <FaAngleDown />, // Updated icon based on open state
+      dropdown: [
+        { title: "General", path: "/settings/general", icon: <CiSettings /> },
+        { title: "Security", path: "/settings/security", icon: <CiSettings /> },
+        {
+          title: "Notifications",
+          path: "/settings/notifications",
+          icon: <CiSettings />,
+        },
+      ],
+    },
     { title: "Signin", path: "/login", src: <SiOpenaccess />, gap: "true" },
   ];
+
+  const handleSettingsClick = () => {
+    setSettingsOpen(!settingsOpen);
+  };
 
   return (
     <>
@@ -46,24 +65,71 @@ const Sidebar: FC = () => {
 
         <ul className="pt-6">
           {Menus.map((menu, index) => (
-            <Link to={menu.path} key={index}>
-              <li
-                className={`flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700
-                        ${menu.gap ? "mt-9" : "mt-2"} ${
-                  location.pathname === menu.path &&
-                  "bg-gray-200 dark:bg-gray-700"
-                }`}
-              >
-                <span className="text-2xl">{menu.src}</span>
-                <span
-                  className={`${
-                    !open && "hidden"
-                  } origin-left duration-300 hover:block`}
+            <div key={index}>
+              {menu.dropdown ? (
+                <li
+                  className={`flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 mt-2`}
+                  onClick={handleSettingsClick}
                 >
-                  {menu.title}
-                </span>
-              </li>
-            </Link>
+                  <span className="text-2xl">{menu.startIcon}</span>
+                  <span
+                    className={`${
+                      !open && "hidden"
+                    } origin-left duration-300 hover:block`}
+                  >
+                    {menu.title}
+                  </span>
+                  <span
+                    className={`${
+                      !open && "hidden"
+                    } origin-left duration-300 hover:block`}
+                  >
+                    {menu.endIcon}
+                  </span>
+                </li>
+              ) : (
+                <Link to={menu.path} key={index}>
+                  <li
+                    className={`flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 mt-2 ${
+                      location.pathname === menu.path &&
+                      "bg-gray-200 dark:bg-gray-700"
+                    }`}
+                  >
+                    <span className="text-2xl">{menu.src}</span>
+                    <span
+                      className={`${
+                        !open && "hidden"
+                      } origin-left duration-300 hover:block`}
+                    >
+                      {menu.title}
+                    </span>
+                  </li>
+                </Link>
+              )}
+
+              {menu.dropdown && settingsOpen && (
+                <ul className="ml-2">
+                  {menu.dropdown.map((dropdownItem, dropdownIndex) => (
+                    <Link to={dropdownItem.path} key={dropdownIndex}>
+                      <li
+                        className={`flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 mt-2`}
+                      >
+                        {dropdownItem.icon && (
+                          <span className="text-2xl">{dropdownItem.icon}</span>
+                        )}
+                        <span
+                          className={`${
+                            !open && "hidden"
+                          } origin-left duration-300 hover:block`}
+                        >
+                          {dropdownItem.title}
+                        </span>
+                      </li>
+                    </Link>
+                  ))}
+                </ul>
+              )}
+            </div>
           ))}
         </ul>
       </div>
@@ -87,7 +153,7 @@ const Sidebar: FC = () => {
               onClick={() => setMobileMenu(false)}
             >
               <span
-                className={` ${
+                className={`${
                   location.pathname === menu.path &&
                   "bg-gray-200 dark:bg-gray-700"
                 } p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700`}
