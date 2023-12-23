@@ -3,6 +3,7 @@ import Toggle from "../theme/ThemeToggle";
 import Notification from "../notification/Notification";
 import Profile from "../profile/Profile";
 import BaseSearch from "../common/search/BaseSearch";
+import Language from "../language/Language";
 
 const Navbar: FC = () => {
   return (
@@ -11,6 +12,7 @@ const Navbar: FC = () => {
       <div className="flex  space-x-4 items-center">
         <Notification />
         <Toggle />
+        <Language />
         <Profile />
       </div>
     </nav>

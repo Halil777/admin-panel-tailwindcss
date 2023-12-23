@@ -8,12 +8,14 @@ import { CgProfile } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import HamburgerButton from "../common/hamburgerMenu/HamburgerButton";
+import { useTranslation } from "react-i18next";
 
 const Sidebar: FC = () => {
   const [open, setOpen] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const Menus = [
     { title: "Dashboard", path: "/dashboard", src: <AiFillPieChart /> },
@@ -57,7 +59,7 @@ const Sidebar: FC = () => {
           <div className={`flex ${open && "gap-x-4"} items-center`}>
             {open && (
               <span className="text-xl font-medium whitespace-nowrap dark:text-white">
-                Admin Panel
+                {t("alerts.accept")}
               </span>
             )}
           </div>

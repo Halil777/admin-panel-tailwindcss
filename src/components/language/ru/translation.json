@@ -1,0 +1,22 @@
+{
+  "alerts": {
+    "accept": "aksept",
+    "basic": "Grundlegende Warnung",
+    "closable": "Schließbarer Alarm",
+    "customActions": "Warnung mit benutzerdefinierten Aktionen",
+    "decline": "Ablehnen",
+    "detail": "Detail",
+    "done": "Fertig",
+    "error": "Fehlertext",
+    "errorDescription": "Fehlerbeschreibung",
+    "icons": "Warnung mit Symbol",
+    "info": "Infotext",
+    "infoDescription": "Zusätzliche Beschreibung und Informationen zum Copywriting.",
+    "success": "Erfolgstext",
+    "successDescription": "Ausführliche Beschreibung und Beratung zum erfolgreichen Copywriting.",
+    "types": "Alert-Typen",
+    "undo": "RÜCKGÄNGIG MACHEN",
+    "warning": "Warntext",
+    "warningDescription": "Dies ist ein Warnhinweis zum Verfassen von Texten."
+  }
+}
