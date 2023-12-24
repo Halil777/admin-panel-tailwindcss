@@ -1,5 +1,7 @@
-import React, { useState, useContext } from "react";
-import { ThemeContext } from "../../components/theme/ThemeContext";
+// import React, { useState, useContext } from "react";
+// import { ThemeContext } from "../../components/theme/ThemeContext";
+
+import { useState } from "react";
 
 interface AddCodesModalProps {
   isOpen: boolean;
@@ -20,7 +22,7 @@ const AddCodesModal: React.FC<AddCodesModalProps> = ({
   onClose,
   onAdd,
 }) => {
-  const { theme } = useContext(ThemeContext) ?? { theme: undefined };
+  // const { theme } = useContext(ThemeContext) ?? { theme: undefined };
 
   const [newCode, setNewCode] = useState({
     id: 0,

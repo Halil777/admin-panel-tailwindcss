@@ -10,6 +10,16 @@ import { FaCode } from "react-icons/fa";
 import HamburgerButton from "../common/hamburgerMenu/HamburgerButton";
 import { useTranslation } from "react-i18next";
 
+interface MenuItem {
+  title: string;
+  path?: string | any;
+  src?: JSX.Element;
+  startIcon?: JSX.Element;
+  endIcon?: JSX.Element;
+  icon?: JSX.Element;
+  dropdown?: MenuItem[];
+}
+
 const Sidebar: FC = () => {
   const [open, setOpen] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -17,7 +27,7 @@ const Sidebar: FC = () => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const Menus = [
+  const Menus: MenuItem[] = [
     { title: "sidebar.dashboard", path: "/dashboard", src: <AiFillPieChart /> },
     { title: "sidebar.home", path: "/", src: <HiOutlineHome /> },
     { title: "sidebar.profile", path: "/profile", src: <CgProfile /> },
@@ -25,7 +35,7 @@ const Sidebar: FC = () => {
     {
       title: "sidebar.settings",
       startIcon: <CiSettings />,
-      endIcon: settingsOpen ? <FaAngleUp /> : <FaAngleDown />, // Updated icon based on open state
+      endIcon: settingsOpen ? <FaAngleUp /> : <FaAngleDown />,
       dropdown: [
         { title: "General", path: "/settings/general", icon: <CiSettings /> },
         { title: "Security", path: "/settings/security", icon: <CiSettings /> },

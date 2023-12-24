@@ -25,7 +25,7 @@ export const ThemeContext = createContext<ThemeContextProps | undefined>(
 );
 
 interface ThemeProviderProps {
-  initialTheme?: string | (() => string | undefined);
+  initialTheme?: string | (() => string);
   children: ReactNode;
 }
 
@@ -35,7 +35,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 }) => {
   const [theme, setTheme] = useState<string>(() => {
     if (typeof initialTheme === "function") {
-      return initialTheme() || getInitialTheme();
+      return (initialTheme as () => string | any)();
     }
     return initialTheme || getInitialTheme();
   });

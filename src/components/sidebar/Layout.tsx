@@ -1,8 +1,12 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "../navbar/Navbar";
 
-const Layout: FC = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <div className="flex flex-auto h-screen">

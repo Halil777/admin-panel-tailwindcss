@@ -1,7 +1,15 @@
 import { FC } from "react";
 import "./HamburgerButton.css";
 
-const HamburgerButton: FC = ({ mobileMenu, setMobileMenu }) => {
+interface HamburgerButtonProps {
+  mobileMenu: boolean;
+  setMobileMenu: (value: boolean) => void;
+}
+
+const HamburgerButton: FC<HamburgerButtonProps> = ({
+  mobileMenu,
+  setMobileMenu,
+}) => {
   return (
     <button
       onClick={() => setMobileMenu(!mobileMenu)}

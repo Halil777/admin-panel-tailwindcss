@@ -9,20 +9,18 @@ import Codes from "./pages/code/Codes";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/codes" element={<Codes />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/codes" element={<Codes />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

@@ -20,7 +20,6 @@ const BaseSearch: FC = () => {
         <AiOutlineSearch />
       </div>
 
-      {/* Media query to hide on small screens (mobile) */}
       <style>{`
         @media (max-width: 767px) {
           input {

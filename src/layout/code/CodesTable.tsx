@@ -5,6 +5,15 @@ import { ThemeContext } from "../../components/theme/ThemeContext";
 import AddCodesModal from "./AddCodesModal";
 import ViewCodesModal from "./ViewCodesModal";
 
+interface NewCodeType {
+  code: string;
+  title: string;
+  description: string;
+  shortName: string;
+  parentId: number;
+  status: string;
+}
+
 interface SubItem {
   id: number;
   code: string;
@@ -42,8 +51,8 @@ const CodesTable: React.FC<TableProps> = ({
   const [isAddModalOpen, setAddModalOpen] = useState(false);
   const [viewItem, setViewItem] = useState<{
     isOpen: boolean;
-    item: TableProps["data"][0];
-  }>({ isOpen: false, item: {} });
+    item: TableProps["data"][0] | undefined;
+  }>({ isOpen: false, item: undefined });
 
   const openAddModal = () => {
     setAddModalOpen(true);
@@ -367,8 +376,19 @@ const CodesTable: React.FC<TableProps> = ({
       />
       <ViewCodesModal
         isOpen={viewItem.isOpen}
-        onClose={() => setViewItem({ isOpen: false, item: {} })}
-        item={viewItem.item}
+        onClose={() => setViewItem({ isOpen: false, item: undefined })}
+        item={
+          viewItem.item || {
+            id: 0,
+            code: "",
+            title: "",
+            description: "",
+            shortName: "",
+            parentId: 0,
+            status: "",
+            subItems: [],
+          }
+        }
       />
     </div>
   );
