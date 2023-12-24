@@ -1,4 +1,3 @@
-// src/components/CodesTable.tsx
 import React, { useState, useContext } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import DeleteModal from "../../components/common/deleteModal/DeleteModal";
