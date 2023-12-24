@@ -3,6 +3,7 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import DeleteModal from "../../components/common/deleteModal/DeleteModal";
 import { ThemeContext } from "../../components/theme/ThemeContext";
 import AddCodesModal from "./AddCodesModal";
+import ViewCodesModal from "./ViewCodesModal";
 
 interface SubItem {
   id: number;
@@ -39,6 +40,10 @@ const CodesTable: React.FC<TableProps> = ({
   const [openRows, setOpenRows] = useState<number[]>([]);
   const [deleteItemId, setDeleteItemId] = useState<number | null>(null);
   const [isAddModalOpen, setAddModalOpen] = useState(false);
+  const [viewItem, setViewItem] = useState<{
+    isOpen: boolean;
+    item: TableProps["data"][0];
+  }>({ isOpen: false, item: {} });
 
   const openAddModal = () => {
     setAddModalOpen(true);
@@ -249,7 +254,7 @@ const CodesTable: React.FC<TableProps> = ({
                     className="bg-green-500 text-white py-1 px-2 rounded"
                     onClick={(e) => {
                       e.stopPropagation();
-                      onView(item.id);
+                      setViewItem({ isOpen: true, item });
                     }}
                   >
                     <FaRegEyeSlash />
@@ -359,6 +364,11 @@ const CodesTable: React.FC<TableProps> = ({
         isOpen={isAddModalOpen}
         onClose={closeAddModal}
         onAdd={handleAddCode}
+      />
+      <ViewCodesModal
+        isOpen={viewItem.isOpen}
+        onClose={() => setViewItem({ isOpen: false, item: {} })}
+        item={viewItem.item}
       />
     </div>
   );
