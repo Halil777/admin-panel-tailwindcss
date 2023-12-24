@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiFillPieChart } from "react-icons/ai";
 import { HiOutlineHome } from "react-icons/hi";
-import { SiOpenaccess } from "react-icons/si";
 import { CgProfile } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
@@ -18,11 +17,11 @@ const Sidebar: FC = () => {
   const { t } = useTranslation();
 
   const Menus = [
-    { title: "Dashboard", path: "/dashboard", src: <AiFillPieChart /> },
-    { title: "Home", path: "/", src: <HiOutlineHome /> },
-    { title: "Profile", path: "/profile", src: <CgProfile /> },
+    { title: "sidebar.dashboard", path: "/dashboard", src: <AiFillPieChart /> },
+    { title: "sidebar.home", path: "/", src: <HiOutlineHome /> },
+    { title: "sidebar.profile", path: "/profile", src: <CgProfile /> },
     {
-      title: "Settings",
+      title: "sidebar.settings",
       startIcon: <CiSettings />,
       endIcon: settingsOpen ? <FaAngleUp /> : <FaAngleDown />, // Updated icon based on open state
       dropdown: [
@@ -35,7 +34,6 @@ const Sidebar: FC = () => {
         },
       ],
     },
-    { title: "Signin", path: "/login", src: <SiOpenaccess />, gap: "true" },
   ];
 
   const handleSettingsClick = () => {
@@ -59,7 +57,7 @@ const Sidebar: FC = () => {
           <div className={`flex ${open && "gap-x-4"} items-center`}>
             {open && (
               <span className="text-xl font-medium whitespace-nowrap dark:text-white">
-                {t("alerts.accept")}
+                {t("sidebar.admin")}
               </span>
             )}
           </div>
@@ -79,7 +77,7 @@ const Sidebar: FC = () => {
                       !open && "hidden"
                     } origin-left duration-300 hover:block`}
                   >
-                    {menu.title}
+                    {t(menu.title)}
                   </span>
                   <span
                     className={`${
@@ -103,7 +101,7 @@ const Sidebar: FC = () => {
                         !open && "hidden"
                       } origin-left duration-300 hover:block`}
                     >
-                      {menu.title}
+                      {t(menu.title)}
                     </span>
                   </li>
                 </Link>
