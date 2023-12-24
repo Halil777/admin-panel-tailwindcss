@@ -5,6 +5,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import Settings from "./pages/settings/Settings";
+import Codes from "./pages/code/Codes";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/codes" element={<Codes />} />
           </Routes>
         </Layout>
       </BrowserRouter>

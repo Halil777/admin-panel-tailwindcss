@@ -6,6 +6,7 @@ import { HiOutlineHome } from "react-icons/hi";
 import { CgProfile } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import HamburgerButton from "../common/hamburgerMenu/HamburgerButton";
 import { useTranslation } from "react-i18next";
 
@@ -20,6 +21,7 @@ const Sidebar: FC = () => {
     { title: "sidebar.dashboard", path: "/dashboard", src: <AiFillPieChart /> },
     { title: "sidebar.home", path: "/", src: <HiOutlineHome /> },
     { title: "sidebar.profile", path: "/profile", src: <CgProfile /> },
+    { title: "sidebar.codes", path: "/codes", src: <FaCode /> },
     {
       title: "sidebar.settings",
       startIcon: <CiSettings />,

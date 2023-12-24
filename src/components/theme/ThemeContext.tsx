@@ -1,7 +1,7 @@
 import React, { useEffect, useState, createContext, ReactNode } from "react";
 
 interface ThemeContextProps {
-  theme: string;
+  theme?: string;
   setTheme: React.Dispatch<React.SetStateAction<string>>;
 }
 
