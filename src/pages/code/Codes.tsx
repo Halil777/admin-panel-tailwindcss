@@ -39,7 +39,6 @@ const Codes: FC = () => {
           parentId: 1,
           status: "Active",
         },
-        // Add more sub-items as needed
       ],
     },
     {
@@ -78,7 +77,6 @@ const Codes: FC = () => {
           parentId: 1,
           status: "Active",
         },
-        // Add more sub-items as needed
       ],
     },
     {
@@ -135,10 +133,8 @@ const Codes: FC = () => {
           parentId: 1,
           status: "Active",
         },
-        // Add more sub-items as needed
       ],
     },
-    // Add more data objects as needed
   ];
 
   const handleEdit = (id: number) => {
