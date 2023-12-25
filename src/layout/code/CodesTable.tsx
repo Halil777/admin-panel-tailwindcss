@@ -4,15 +4,7 @@ import DeleteModal from "../../components/common/deleteModal/DeleteModal";
 import { ThemeContext } from "../../components/theme/ThemeContext";
 import AddCodesModal from "./AddCodesModal";
 import ViewCodesModal from "./ViewCodesModal";
-
-interface NewCodeType {
-  code: string;
-  title: string;
-  description: string;
-  shortName: string;
-  parentId: number;
-  status: string;
-}
+import EditCodesModal from "./EditCodesModal";
 
 interface SubItem {
   id: number;
@@ -48,23 +40,10 @@ const CodesTable: React.FC<TableProps> = ({
 }) => {
   const [openRows, setOpenRows] = useState<number[]>([]);
   const [deleteItemId, setDeleteItemId] = useState<number | null>(null);
-  const [isAddModalOpen, setAddModalOpen] = useState(false);
   const [viewItem, setViewItem] = useState<{
     isOpen: boolean;
     item: TableProps["data"][0] | undefined;
   }>({ isOpen: false, item: undefined });
-
-  const openAddModal = () => {
-    setAddModalOpen(true);
-  };
-
-  const closeAddModal = () => {
-    setAddModalOpen(false);
-  };
-
-  const handleAddCode = (newCode: NewCodeType) => {
-    console.log("Adding new code:", newCode);
-  };
 
   const { theme } = useContext(ThemeContext) ?? { theme: undefined };
 
@@ -111,14 +90,7 @@ const CodesTable: React.FC<TableProps> = ({
         <span className={theme === "dark" ? "dark:text-white" : ""}>
           Codes Table
         </span>
-        <button
-          className={`${
-            theme === "dark" ? "bg-green-600" : "bg-green-600"
-          } text-white py-2 px-4 rounded hover:bg-green-600`}
-          onClick={openAddModal}
-        >
-          Add Codes
-        </button>
+        <AddCodesModal />
       </div>
       <table
         className={`min-w-full ${
@@ -189,7 +161,7 @@ const CodesTable: React.FC<TableProps> = ({
           {data.map((item) => (
             <React.Fragment key={item.id}>
               <tr
-                className={`${openRows.includes(item.id) ? "bg-gray-200" : ""}`}
+                className={`${openRows.includes(item.id) ? "bg-gray-400" : ""}`}
                 style={{ cursor: "pointer" }}
                 onClick={(e) => handleRowClick(e, item.id)}
               >
@@ -243,31 +215,28 @@ const CodesTable: React.FC<TableProps> = ({
                   {item.status}
                 </td>
                 <td
-                  className={`py-2 px-4 border-b text-center  ${
+                  className={`py-2 px-4   border-b   ${
                     theme === "dark" ? "dark:text-white" : ""
                   }`}
                 >
-                  <button
-                    className="bg-blue-500 text-white py-1 px-2 mr-2 rounded"
-                    onClick={openAddModal}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="bg-red-500 text-white py-1 px-2 mr-2 rounded"
-                    onClick={(e) => handleDeleteClick(e, item.id)}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    className="bg-green-500 text-white py-1 px-2 rounded"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setViewItem({ isOpen: true, item });
-                    }}
-                  >
-                    <FaRegEyeSlash />
-                  </button>
+                  <div className="flex gap-3">
+                    <EditCodesModal />
+                    <button
+                      className="bg-red-500 text-white py-1 px-2 mr-2 rounded"
+                      onClick={(e) => handleDeleteClick(e, item.id)}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="bg-green-500 text-white py-1 px-2 rounded"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setViewItem({ isOpen: true, item });
+                      }}
+                    >
+                      <FaRegEyeSlash />
+                    </button>
+                  </div>
                 </td>
               </tr>
               {openRows.includes(item.id) && item.subItems && (
@@ -278,58 +247,42 @@ const CodesTable: React.FC<TableProps> = ({
                       // className={`${theme === "dark" ? "bg-gray-100" : ""}`}
                     >
                       <td
-                        className={`py-2 px-4 border-b text-center  ${
-                          theme === "dark" ? "dark:text-white" : ""
-                        }`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
                         {subItem.id}
                       </td>
                       <td
-                        className={`py-2 px-4 border-b text-center  ${
-                          theme === "dark" ? "dark:text-white" : ""
-                        }`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
                         {subItem.code}
                       </td>
                       <td
-                        className={`py-2 px-4 border-b text-center  ${
-                          theme === "dark" ? "dark:text-white" : ""
-                        }`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
                         {subItem.title}
                       </td>
                       <td
-                        className={`py-2 px-4 border-b text-center  ${
-                          theme === "dark" ? "dark:text-white" : ""
-                        }`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
                         {subItem.description}
                       </td>
                       <td
-                        className={`py-2 px-4 border-b text-center  ${
-                          theme === "dark" ? "dark:text-white" : ""
-                        }`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
                         {subItem.shortName}
                       </td>
                       <td
-                        className={`py-2 px-4 border-b text-center  ${
-                          theme === "dark" ? "dark:text-white" : ""
-                        }`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
                         {subItem.parentId}
                       </td>
                       <td
-                        className={`py-2 px-4 border-b text-center  ${
-                          theme === "dark" ? "dark:text-white" : ""
-                        }`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
                         {subItem.status}
                       </td>
                       <td
-                        className={`py-2 px-4 border-b text-center  ${
-                          theme === "dark" ? "dark:text-white" : ""
-                        }`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
                         <button
                           className="bg-blue-500 text-white py-1 px-2 mr-2 rounded"
@@ -368,11 +321,6 @@ const CodesTable: React.FC<TableProps> = ({
         isOpen={deleteItemId !== null}
         onClose={handleDeleteCancel}
         onDelete={handleDeleteConfirm}
-      />
-      <AddCodesModal
-        isOpen={isAddModalOpen}
-        onClose={closeAddModal}
-        onAdd={handleAddCode}
       />
       <ViewCodesModal
         isOpen={viewItem.isOpen}

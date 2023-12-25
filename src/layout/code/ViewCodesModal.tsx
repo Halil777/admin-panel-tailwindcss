@@ -40,43 +40,63 @@ const ViewCodesModal: React.FC<ViewCodesModalProps> = ({
           >
             <div className="p-8">
               <h2 className="text-2xl font-bold mb-4">View Item</h2>
-              <div className="mb-4">
-                <label
-                  htmlFor="code"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Code
-                </label>
-                <p className="mt-1 p-2 border rounded-md">{item.code}</p>
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="title"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Title
-                </label>
-                <p className="mt-1 p-2 border rounded-md">{item.title}</p>
-              </div>
-              {/* Add more fields for other properties */}
-              {/* ... */}
-              <div className="mb-4">
-                <label
-                  htmlFor="status"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Status
-                </label>
-                <p className="mt-1 p-2 border rounded-md">{item.status}</p>
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="parentId"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Parent ID
-                </label>
-                <p className="mt-1 p-2 border rounded-md">{item.parentId}</p>
+              <div className="grid grid-cols-4 gap-10 mb-10">
+                <div>
+                  <label
+                    htmlFor="code"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Code
+                  </label>
+                  <p className="mt-1 p-2 border rounded-md">{item.code}</p>
+                </div>
+                <div>
+                  <label
+                    htmlFor="title"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Title
+                  </label>
+                  <p className="mt-1 p-2 border rounded-md">{item.title}</p>
+                </div>
+                <div>
+                  <label
+                    htmlFor="status"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Status
+                  </label>
+                  <p className="mt-1 p-2 border rounded-md">{item.status}</p>
+                </div>
+                <div>
+                  <label
+                    htmlFor="parentId"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Parent ID
+                  </label>
+                  <p className="mt-1 p-2 border rounded-md">{item.parentId}</p>
+                </div>
+                <div>
+                  <label
+                    htmlFor="parentId"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Description
+                  </label>
+                  <p className="mt-1 p-2 border rounded-md">
+                    {item.description}
+                  </p>
+                </div>
+                <div>
+                  <label
+                    htmlFor="parentId"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Short Name
+                  </label>
+                  <p className="mt-1 p-2 border rounded-md">{item.shortName}</p>
+                </div>
               </div>
               {item.subItems && (
                 <div>

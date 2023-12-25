@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-const AddCodesModal: FC = () => {
+const EditCodesModal: FC = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -8,10 +8,10 @@ const AddCodesModal: FC = () => {
       <>
         <button
           type="button"
-          className="text-white py-2 px-4 rounded bg-green-600 hover:bg-green-600"
+          className="bg-blue-500 text-white py-1 px-2 mr-2 rounded"
           onClick={() => setShowModal(true)}
         >
-          Add Test
+          Edit
         </button>
         {showModal ? (
           <>
@@ -20,7 +20,7 @@ const AddCodesModal: FC = () => {
                 <div className="border-0 rounded-lg p-5 shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                     <h3 className="text-3xl text-black font-semibold">
-                      Add New Code
+                      Edit Code
                     </h3>
                     <button
                       className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -150,4 +150,4 @@ const AddCodesModal: FC = () => {
   );
 };
 
-export default AddCodesModal;
+export default EditCodesModal;
