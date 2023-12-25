@@ -10,5 +10,19 @@
     "dashboard": "Dashboard",
     "codes": "Codes",
     "search": "Search ..."
+  },
+  "table": {
+    "code": " Code",
+    "title": "Title",
+    "description": "Description",
+    "short_name": "Short Name",
+    "parent_id": "Parent ID",
+    "status": "Status",
+    "actions": "Actions",
+    "active": "Active",
+    "pending": "Pending",
+    "disabled": "Disabled",
+    "delete": "Delete",
+    "edit": "Edit"
   }
 }

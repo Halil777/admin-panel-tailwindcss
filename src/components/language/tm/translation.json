@@ -1,7 +1,4 @@
 {
-  "alerts": {
-    "accept": "Ylalasmak"
-  },
   "sidebar": {
     "home": "Baş sahypa",
     "admin": "Admin Panel",
@@ -10,5 +7,19 @@
     "dashboard": "Daşboard",
     "codes": "Kod",
     "search": "Gözlemek  ..."
+  },
+  "table": {
+    "code": "Kod",
+    "title": "Ady",
+    "description": "Düşündiriş",
+    "short_name": "Gysgaça ady",
+    "parent_id": "Parent ID",
+    "status": "Status",
+    "actions": "Goşmaçalar",
+    "active": "Işjeň",
+    "pending": "Garaşylýar",
+    "disabled": "Öçürilen",
+    "delete": "Pozmak",
+    "edit": "Üýtgetmek"
   }
 }

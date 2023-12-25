@@ -10,7 +10,7 @@ const Codes: FC = () => {
       description: "Lorem ipsum",
       shortName: "AB",
       parentId: 0,
-      status: "Active",
+      status: "table.active",
       subItems: [
         {
           id: 4,
@@ -19,7 +19,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
         {
           id: 4,
@@ -28,7 +28,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
         {
           id: 4,
@@ -37,7 +37,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
       ],
     },
@@ -48,7 +48,7 @@ const Codes: FC = () => {
       description: "Lorem ipsum dolor",
       shortName: "DE",
       parentId: 1,
-      status: "Pending",
+      status: "table.pending",
       subItems: [
         {
           id: 5,
@@ -57,7 +57,7 @@ const Codes: FC = () => {
           description: "SubItem Description 2",
           shortName: "LM",
           parentId: 2,
-          status: "Pending",
+          status: "table.pending",
         },
         {
           id: 4,
@@ -66,7 +66,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
         {
           id: 4,
@@ -75,7 +75,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
       ],
     },
@@ -86,7 +86,7 @@ const Codes: FC = () => {
       description: "Lorem ipsum semit",
       shortName: "GH",
       parentId: 2,
-      status: "Disabled",
+      status: "table.disabled",
       subItems: [
         {
           id: 6,
@@ -95,7 +95,7 @@ const Codes: FC = () => {
           description: "SubItem Description 3",
           shortName: "OP",
           parentId: 3,
-          status: "Disabled",
+          status: "table.disabled",
         },
         {
           id: 4,
@@ -104,7 +104,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
         {
           id: 4,
@@ -113,7 +113,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
         {
           id: 4,
@@ -122,7 +122,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
         {
           id: 4,
@@ -131,7 +131,7 @@ const Codes: FC = () => {
           description: "SubItem Description 1",
           shortName: "XY",
           parentId: 1,
-          status: "Active",
+          status: "table.active",
         },
       ],
     },

@@ -10,5 +10,19 @@
     "dashboard": "Дашбоардь",
     "codes": "Коди",
     "search": "Поиск ..."
+  },
+  "table": {
+    "code": " Код",
+    "title": "Заголовок",
+    "description": "Описание",
+    "short_name": "Короткое имя",
+    "parent_id": "Parent ID",
+    "status": "Положение",
+    "actions": "Действия",
+    "active": "Активный",
+    "pending": "В ожидании",
+    "disabled": "Неполноценный",
+    "delete": "Удалить",
+    "edit": "Редактировать"
   }
 }

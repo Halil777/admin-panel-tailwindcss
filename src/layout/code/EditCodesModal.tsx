@@ -1,6 +1,8 @@
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const EditCodesModal: FC = () => {
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,7 +13,7 @@ const EditCodesModal: FC = () => {
           className="bg-blue-500 text-white py-1 px-2 mr-2 rounded"
           onClick={() => setShowModal(true)}
         >
-          Edit
+          {t("table.edit")}
         </button>
         {showModal ? (
           <>

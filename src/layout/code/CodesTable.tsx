@@ -5,6 +5,7 @@ import { ThemeContext } from "../../components/theme/ThemeContext";
 import AddCodesModal from "./AddCodesModal";
 import ViewCodesModal from "./ViewCodesModal";
 import EditCodesModal from "./EditCodesModal";
+import { useTranslation } from "react-i18next";
 
 interface SubItem {
   id: number;
@@ -44,6 +45,8 @@ const CodesTable: React.FC<TableProps> = ({
     isOpen: boolean;
     item: TableProps["data"][0] | undefined;
   }>({ isOpen: false, item: undefined });
+
+  const { t } = useTranslation();
 
   const { theme } = useContext(ThemeContext) ?? { theme: undefined };
 
@@ -93,7 +96,7 @@ const CodesTable: React.FC<TableProps> = ({
         <AddCodesModal />
       </div>
       <table
-        className={`min-w-full ${
+        className={`min-w-full  ${
           theme === "dark" ? "bg-light" : "bg-dark"
         } border border-gray-300`}
       >
@@ -111,49 +114,49 @@ const CodesTable: React.FC<TableProps> = ({
                 theme === "dark" ? "dark:text-white" : ""
               }`}
             >
-              Code
+              {t("table.code")}
             </th>
             <th
               className={`py-2 px-4 border-b text-center  ${
                 theme === "dark" ? "dark:text-white" : ""
               }`}
             >
-              Title
+              {t("table.title")}
             </th>
             <th
               className={`py-2 px-4 border-b text-center  ${
                 theme === "dark" ? "dark:text-white" : ""
               }`}
             >
-              Description
+              {t("table.description")}
             </th>
             <th
               className={`py-2 px-4 border-b text-center  ${
                 theme === "dark" ? "dark:text-white" : ""
               }`}
             >
-              Short Name
+              {t("table.short_name")}
             </th>
             <th
               className={`py-2 px-4 border-b text-center  ${
                 theme === "dark" ? "dark:text-white" : ""
               }`}
             >
-              Parent ID
+              {t("table.parent_id")}
             </th>
             <th
               className={`py-2 px-4 border-b text-center  ${
                 theme === "dark" ? "dark:text-white" : ""
               }`}
             >
-              Status
+              {t("table.status")}
             </th>
             <th
               className={`py-2 px-4 border-b text-center  ${
                 theme === "dark" ? "dark:text-white" : ""
               }`}
             >
-              Actions
+              {t("table.actions")}
             </th>
           </tr>
         </thead>
@@ -208,11 +211,15 @@ const CodesTable: React.FC<TableProps> = ({
                   {item.parentId}
                 </td>
                 <td
-                  className={`py-2 px-4 border-b text-center  ${
-                    theme === "dark" ? "dark:text-white" : ""
+                  className={`py-2 px-4 border-b text-center   ${
+                    item.status === "table.active"
+                      ? "text-green-400"
+                      : item.status === "table.pending"
+                      ? "text-yellow-400"
+                      : "text-red-500"
                   }`}
                 >
-                  {item.status}
+                  {t(item.status)}
                 </td>
                 <td
                   className={`py-2 px-4   border-b   ${
@@ -225,7 +232,7 @@ const CodesTable: React.FC<TableProps> = ({
                       className="bg-red-500 text-white py-1 px-2 mr-2 rounded"
                       onClick={(e) => handleDeleteClick(e, item.id)}
                     >
-                      Delete
+                      {t("table.delete")}
                     </button>
                     <button
                       className="bg-green-500 text-white py-1 px-2 rounded"
@@ -279,7 +286,7 @@ const CodesTable: React.FC<TableProps> = ({
                       <td
                         className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                       >
-                        {subItem.status}
+                        {t(subItem.status)}
                       </td>
                       <td
                         className={`py-2 px-4 border-b text-center  bg-yellow-100`}
@@ -291,13 +298,13 @@ const CodesTable: React.FC<TableProps> = ({
                             onEdit(item.id);
                           }}
                         >
-                          Edit
+                          {t("table.edit")}
                         </button>
                         <button
                           className="bg-red-500 text-white py-1 px-2 mr-2 rounded"
                           onClick={(e) => handleDeleteClick(e, item.id)}
                         >
-                          Delete
+                          {t("table.delete")}
                         </button>
                         <button
                           className="bg-green-500 text-white py-1 px-2 rounded"
