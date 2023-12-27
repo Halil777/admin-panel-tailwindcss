@@ -131,7 +131,7 @@ const CodesTable: React.FC<TableProps> = ({
               {t("table.description")}
             </th>
             <th
-              className={`py-2 px-4 border-b text-center  ${
+              className={`py-2 px-4 border-b text-center   ${
                 theme === "dark" ? "dark:text-white" : ""
               }`}
             >
