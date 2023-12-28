@@ -2,10 +2,9 @@ import React, { useState, useContext } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import DeleteModal from "../../components/common/deleteModal/DeleteModal";
 import { ThemeContext } from "../../components/theme/ThemeContext";
-import AddCodesModal from "./AddCodesModal";
 import ViewCodesModal from "./ViewCodesModal";
-import EditCodesModal from "./EditCodesModal";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 interface SubItem {
   id: number;
@@ -47,6 +46,7 @@ const CodesTable: React.FC<TableProps> = ({
   }>({ isOpen: false, item: undefined });
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const { theme } = useContext(ThemeContext) ?? { theme: undefined };
 
@@ -93,7 +93,13 @@ const CodesTable: React.FC<TableProps> = ({
         <span className={theme === "dark" ? "dark:text-white" : ""}>
           Codes Table
         </span>
-        <AddCodesModal />
+        <button
+          type="button"
+          className="text-white py-2 px-4 rounded bg-green-600 hover:bg-green-600"
+          onClick={() => navigate("/add-code")}
+        >
+          Add Test
+        </button>
       </div>
       <table
         className={`min-w-full  ${
@@ -222,12 +228,19 @@ const CodesTable: React.FC<TableProps> = ({
                   {t(item.status)}
                 </td>
                 <td
-                  className={`py-2 px-4   border-b   ${
+                  className={`py-2 px-4   border-b  ${
                     theme === "dark" ? "dark:text-white" : ""
                   }`}
                 >
-                  <div className="flex gap-3">
-                    <EditCodesModal />
+                  <div className="flex gap-3 justify-center ">
+                    <button
+                      className="bg-blue-500 text-white py-1 px-2 mr-2 rounded"
+                      onClick={(e) => {
+                        navigate("/edit-code");
+                      }}
+                    >
+                      {t("table.edit")}
+                    </button>
                     <button
                       className="bg-red-500 text-white py-1 px-2 mr-2 rounded"
                       onClick={(e) => handleDeleteClick(e, item.id)}
