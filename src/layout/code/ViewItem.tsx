@@ -12,7 +12,7 @@ const ViewItem: FC = () => {
           <label className="text-2xl dark:text-white">View Item</label>
           <IoMdClose
             title="Close"
-            onClick={(e) => navigate("/codes")}
+            onClick={() => navigate("/codes")}
             className="text-2xl cursor-pointer dark:text-white"
           />
         </div>

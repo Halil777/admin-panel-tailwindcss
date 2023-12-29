@@ -230,7 +230,7 @@ const CodesTable: React.FC<TableProps> = ({
                   <div className="flex gap-3 justify-center ">
                     <button
                       className="bg-blue-500 text-white py-1 px-2 mr-2 rounded"
-                      onClick={(e) => {
+                      onClick={() => {
                         navigate("/edit-code");
                       }}
                     >
@@ -245,7 +245,7 @@ const CodesTable: React.FC<TableProps> = ({
                     <button
                       title="View All  Details"
                       className="bg-green-500 text-white py-1 px-2 rounded"
-                      onClick={(e) => navigate("/view-code")}
+                      onClick={() => navigate("/view-code")}
                     >
                       <FaRegEyeSlash />
                     </button>

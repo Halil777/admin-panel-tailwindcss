@@ -10,7 +10,7 @@ const AddCodesComponent: FC = () => {
         <div className="flex justify-between">
           <span className="text-2xl">Kod Goşmak</span>
           <button
-            onClick={(e) => navigate("/codes")}
+            onClick={() => navigate("/codes")}
             type="button"
             className="px-4 py-3 shadow-2xl bg-green-600 text-white rounded"
           >
@@ -62,7 +62,7 @@ const AddCodesComponent: FC = () => {
 
         <div className="flex gap-5 mt-10">
           <button
-            onClick={(e) => navigate("/codes")}
+            onClick={() => navigate("/codes")}
             type="button"
             className="bg-gray-300 hover:bg-gray-400 hover:text-white shadow-2xl text-black transition-all  py-3 px-4  rounded"
           >
