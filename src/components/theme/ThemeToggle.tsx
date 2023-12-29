@@ -8,7 +8,6 @@ const Toggle: React.FC<ToggleProps> = () => {
   const context = useContext(ThemeContext);
 
   if (!context) {
-    // Handle the case where context is undefined (optional)
     return null;
   }
 

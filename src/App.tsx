@@ -8,6 +8,7 @@ import Settings from "./pages/settings/Settings";
 import Codes from "./pages/code/Codes";
 import AddCodesComponent from "./layout/code/AddCodesComponent";
 import EditCode from "./layout/code/EditCode";
+import ViewItem from "./layout/code/ViewItem";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/codes" element={<Codes />} />
           <Route path="/add-code" element={<AddCodesComponent />} />
           <Route path="/edit-code" element={<EditCode />} />
+          <Route path="/view-code" element={<ViewItem />} />
         </Routes>
       </Layout>
     </BrowserRouter>

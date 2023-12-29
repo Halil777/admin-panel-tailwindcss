@@ -5,7 +5,7 @@ import { FaRegSave } from "react-icons/fa";
 const AddCodesComponent: FC = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="pb-32">
       <div className="bg-gray-200 rounded-lg shadow-xl mt-10 w-full px-32 py-12 shadow-3xl">
         <div className="flex justify-between">
           <span className="text-2xl">Kod Goşmak</span>

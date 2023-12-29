@@ -150,7 +150,7 @@ const Codes: FC = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen">
       <CodesTable
         data={tableData}
         onEdit={handleEdit}

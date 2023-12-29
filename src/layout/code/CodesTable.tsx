@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import DeleteModal from "../../components/common/deleteModal/DeleteModal";
 import { ThemeContext } from "../../components/theme/ThemeContext";
-import ViewCodesModal from "./ViewCodesModal";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
@@ -40,10 +39,6 @@ const CodesTable: React.FC<TableProps> = ({
 }) => {
   const [openRows, setOpenRows] = useState<number[]>([]);
   const [deleteItemId, setDeleteItemId] = useState<number | null>(null);
-  const [viewItem, setViewItem] = useState<{
-    isOpen: boolean;
-    item: TableProps["data"][0] | undefined;
-  }>({ isOpen: false, item: undefined });
 
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -248,11 +243,9 @@ const CodesTable: React.FC<TableProps> = ({
                       {t("table.delete")}
                     </button>
                     <button
+                      title="View All  Details"
                       className="bg-green-500 text-white py-1 px-2 rounded"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setViewItem({ isOpen: true, item });
-                      }}
+                      onClick={(e) => navigate("/view-code")}
                     >
                       <FaRegEyeSlash />
                     </button>
@@ -267,7 +260,7 @@ const CodesTable: React.FC<TableProps> = ({
                       // className={`${theme === "dark" ? "bg-gray-100" : ""}`}
                     >
                       <td
-                        className={`py-2 px-4 border-b text-center  bg-yellow-100`}
+                        className={`py-2 px-4 border-b text-center  bg-yellow-100 dark:bg-red-300`}
                       >
                         {subItem.id}
                       </td>
@@ -341,22 +334,6 @@ const CodesTable: React.FC<TableProps> = ({
         isOpen={deleteItemId !== null}
         onClose={handleDeleteCancel}
         onDelete={handleDeleteConfirm}
-      />
-      <ViewCodesModal
-        isOpen={viewItem.isOpen}
-        onClose={() => setViewItem({ isOpen: false, item: undefined })}
-        item={
-          viewItem.item || {
-            id: 0,
-            code: "",
-            title: "",
-            description: "",
-            shortName: "",
-            parentId: 0,
-            status: "",
-            subItems: [],
-          }
-        }
       />
     </div>
   );
