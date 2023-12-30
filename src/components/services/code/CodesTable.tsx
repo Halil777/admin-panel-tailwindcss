@@ -4,15 +4,13 @@ import DeleteModal from "../../common/deleteModal/DeleteModal";
 import { ThemeContext } from "../../common/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { MdDelete } from "react-icons/md";
+import { MdOutlineModeEdit } from "react-icons/md";
 
 interface SubItem {
   id: number;
   code: string;
   title: string;
-  description: string;
-  shortName: string;
-  parentId: number;
-  status: string;
 }
 
 interface TableProps {
@@ -20,10 +18,6 @@ interface TableProps {
     id: number;
     code: string;
     title: string;
-    description: string;
-    shortName: string;
-    parentId: number;
-    status: string;
     subItems?: SubItem[];
   }[];
   onEdit: (id: number) => void;
@@ -90,10 +84,10 @@ const CodesTable: React.FC<TableProps> = ({
         </span>
         <button
           type="button"
-          className="text-white py-2 px-4 rounded bg-green-600 hover:bg-green-600"
+          className="py-2 px-4 rounded border-gray-400 text-gray-400"
           onClick={() => navigate("/add-code")}
         >
-          Add Test
+          + Add Test
         </button>
       </div>
       <div className="overflow-x-auto w-full">
@@ -104,13 +98,6 @@ const CodesTable: React.FC<TableProps> = ({
         >
           <thead>
             <tr>
-              <th
-                className={`py-2 w-16 px-4 border-b text-center  ${
-                  theme === "dark" ? "dark:text-white" : ""
-                }`}
-              >
-                ID
-              </th>
               <th
                 className={`py-2 px-4 w-40 border-b text-center  ${
                   theme === "dark" ? "dark:text-white" : ""
@@ -125,34 +112,7 @@ const CodesTable: React.FC<TableProps> = ({
               >
                 {t("table.title")}
               </th>
-              <th
-                className={`py-2 px-4 w-48 border-b text-center  ${
-                  theme === "dark" ? "dark:text-white" : ""
-                }`}
-              >
-                {t("table.description")}
-              </th>
-              <th
-                className={`py-2 px-4 border-b w-48 text-center   ${
-                  theme === "dark" ? "dark:text-white" : ""
-                }`}
-              >
-                {t("table.short_name")}
-              </th>
-              <th
-                className={`py-2 px-4 border-b w-40 text-center  ${
-                  theme === "dark" ? "dark:text-white" : ""
-                }`}
-              >
-                {t("table.parent_id")}
-              </th>
-              <th
-                className={`py-2 px-4 border-b w-40 text-center  ${
-                  theme === "dark" ? "dark:text-white" : ""
-                }`}
-              >
-                {t("table.status")}
-              </th>
+
               <th
                 className={` py-2 sticky top-0  z-10 px-4 border-b w-56 text-center  ${
                   theme === "dark" ? "dark:text-white" : ""
@@ -177,13 +137,6 @@ const CodesTable: React.FC<TableProps> = ({
                       theme === "dark" ? "dark:text-white" : ""
                     }`}
                   >
-                    {item.id}
-                  </td>
-                  <td
-                    className={`py-2 px-4 border-b text-center  ${
-                      theme === "dark" ? "dark:text-white" : ""
-                    }`}
-                  >
                     {item.code}
                   </td>
                   <td
@@ -193,38 +146,7 @@ const CodesTable: React.FC<TableProps> = ({
                   >
                     {item.title}
                   </td>
-                  <td
-                    className={`py-2 px-4 border-b text-center  ${
-                      theme === "dark" ? "dark:text-white" : ""
-                    }`}
-                  >
-                    {item.description}
-                  </td>
-                  <td
-                    className={`py-2 px-4 border-b text-center  ${
-                      theme === "dark" ? "dark:text-white" : ""
-                    }`}
-                  >
-                    {item.shortName}
-                  </td>
-                  <td
-                    className={`py-2 px-4 border-b text-center  ${
-                      theme === "dark" ? "dark:text-white" : ""
-                    }`}
-                  >
-                    {item.parentId}
-                  </td>
-                  <td
-                    className={`py-2 px-4 border-b text-center   ${
-                      item.status === "table.active"
-                        ? "text-green-400"
-                        : item.status === "table.pending"
-                        ? "text-yellow-400"
-                        : "text-red-500"
-                    }`}
-                  >
-                    {t(item.status)}
-                  </td>
+
                   <td
                     className={`py-2 px-4   border-b  ${
                       theme === "dark" ? "dark:text-white" : ""
@@ -237,13 +159,13 @@ const CodesTable: React.FC<TableProps> = ({
                           navigate("/edit-code");
                         }}
                       >
-                        {t("table.edit")}
+                        <MdOutlineModeEdit />
                       </button>
                       <button
                         className="bg-red-500 text-white py-1 px-2 mr-2 rounded"
                         onClick={(e) => handleDeleteClick(e, item.id)}
                       >
-                        {t("table.delete")}
+                        <MdDelete />
                       </button>
                       <button
                         title="View All  Details"
@@ -263,11 +185,6 @@ const CodesTable: React.FC<TableProps> = ({
                         // className={`${theme === "dark" ? "bg-gray-100" : ""}`}
                       >
                         <td
-                          className={`py-2 px-4 border-b text-center  bg-yellow-100 dark:bg-red-300`}
-                        >
-                          {subItem.id}
-                        </td>
-                        <td
                           className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                         >
                           {subItem.code}
@@ -277,26 +194,7 @@ const CodesTable: React.FC<TableProps> = ({
                         >
                           {subItem.title}
                         </td>
-                        <td
-                          className={`py-2 px-4 border-b text-center  bg-yellow-100`}
-                        >
-                          {subItem.description}
-                        </td>
-                        <td
-                          className={`py-2 px-4 border-b text-center  bg-yellow-100`}
-                        >
-                          {subItem.shortName}
-                        </td>
-                        <td
-                          className={`py-2 px-4 border-b text-center  bg-yellow-100`}
-                        >
-                          {subItem.parentId}
-                        </td>
-                        <td
-                          className={`py-2 px-4 border-b text-center  bg-yellow-100`}
-                        >
-                          {t(subItem.status)}
-                        </td>
+
                         <td
                           className={`py-2 px-4 border-b text-center  bg-yellow-100`}
                         >
@@ -307,13 +205,13 @@ const CodesTable: React.FC<TableProps> = ({
                               onEdit(item.id);
                             }}
                           >
-                            {t("table.edit")}
+                            <MdOutlineModeEdit />
                           </button>
                           <button
                             className="bg-red-500 text-white py-1 px-2 mr-2 rounded"
                             onClick={(e) => handleDeleteClick(e, item.id)}
                           >
-                            {t("table.delete")}
+                            <MdDelete />
                           </button>
                           <button
                             className="bg-green-500 text-white py-1 px-2 rounded"
