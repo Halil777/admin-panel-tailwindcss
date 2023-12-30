@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
-import DeleteModal from "../../components/common/deleteModal/DeleteModal";
-import { ThemeContext } from "../../components/theme/ThemeContext";
+import DeleteModal from "../../common/deleteModal/DeleteModal";
+import { ThemeContext } from "../../common/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 

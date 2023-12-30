@@ -1,5 +1,5 @@
 import { FC } from "react";
-import CodesTable from "../../layout/code/CodesTable";
+import CodesTable from "../../../components/services/code/CodesTable";
 
 const Codes: FC = () => {
   const tableData = [

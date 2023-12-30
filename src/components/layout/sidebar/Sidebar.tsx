@@ -7,7 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { FaCode } from "react-icons/fa";
-import HamburgerButton from "../common/hamburgerMenu/HamburgerButton";
+import HamburgerButton from "../../common/hamburgerMenu/HamburgerButton";
 import { useTranslation } from "react-i18next";
 
 interface MenuItem {
@@ -146,7 +146,7 @@ const Sidebar: FC = () => {
         </ul>
       </div>
       {/* Mobile Menu */}
-      <div className="pt-3">
+      <div>
         <HamburgerButton
           setMobileMenu={setMobileMenu}
           mobileMenu={mobileMenu}

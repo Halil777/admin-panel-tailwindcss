@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/sidebar/Layout";
-import Home from "./pages/home/Home";
-import Dashboard from "./pages/dashboard/Dashboard";
-import Login from "./pages/login/Login";
-import Profile from "./pages/profile/Profile";
-import Settings from "./pages/settings/Settings";
-import Codes from "./pages/code/Codes";
-import AddCodesComponent from "./layout/code/AddCodesComponent";
-import EditCode from "./layout/code/EditCode";
-import ViewItem from "./layout/code/ViewItem";
+import Layout from "../../layout/Layout";
+import Home from "../../../pages/home/Home";
+import Dashboard from "../../../pages/dashboard/Dashboard";
+import Login from "../../../pages/user/login/Login";
+import Profile from "../../profile/Profile";
+import Settings from "../../../pages/settings/Settings";
+import Codes from "../../../pages/services/code/Codes";
+import AddCodesComponent from "../../services/code/AddCodesComponent";
+import EditCode from "../../services/code/EditCode";
+import ViewItem from "../../services/code/ViewItem";
 
-function App() {
+const RouteList = () => {
   return (
     <BrowserRouter>
       <Layout>
@@ -28,6 +28,6 @@ function App() {
       </Layout>
     </BrowserRouter>
   );
-}
+};
 
-export default App;
+export default RouteList;

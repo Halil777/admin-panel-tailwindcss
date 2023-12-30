@@ -11,7 +11,7 @@ const BaseSearch: FC = () => {
       <input
         type="text"
         placeholder={t("sidebar.search")}
-        className={`border rounded-md py-2 px-4 transition-all duration-300 focus:outline-none focus:border-blue-500`}
+        className={`border hidden md:block rounded-md py-2 px-4 transition-all duration-300 focus:outline-none focus:border-blue-500`}
         style={{ width: isExpanded ? "400px" : "300px" }}
         onClick={() => setIsExpanded(true)}
         onBlur={() => setIsExpanded(false)}
@@ -19,14 +19,6 @@ const BaseSearch: FC = () => {
       <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
         <AiOutlineSearch />
       </div>
-
-      <style>{`
-        @media (max-width: 767px) {
-          input {
-            display: none;
-          }
-        }
-      `}</style>
     </div>
   );
 };
