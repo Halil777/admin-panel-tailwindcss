@@ -15,14 +15,14 @@ const DeleteModal: React.FC<DeleteModalProps> = ({
     return null;
   }
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex items-start justify-center">
+    <div className="fixed  left-0 w-full h-full flex items-start top-0 pt-52 justify-center">
       <div
         className="absolute top-0 left-0 w-full h-full bg-black opacity-50"
         onClick={onClose}
       ></div>
-      <div className="z-10 bg-white p-5 rounded-md">
-        <p>Are you sure you want to delete?</p>
-        <div className="mt-4 flex justify-end">
+      <div className="z-10 bg-white p-10 w-2/5 h-48  rounded-md">
+        <p className="text-xl">Are you sure you want to delete this item?</p>
+        <div className="mt-16 flex justify-end">
           <button
             className="bg-red-500 text-white px-3 py-1 rounded mr-2"
             onClick={onDelete}
