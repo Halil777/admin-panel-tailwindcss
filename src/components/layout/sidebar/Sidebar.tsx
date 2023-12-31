@@ -9,6 +9,7 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { FaCode } from "react-icons/fa";
 import HamburgerButton from "../../common/hamburgerMenu/HamburgerButton";
 import { useTranslation } from "react-i18next";
+import Profile from "../../profile/Profile";
 
 interface MenuItem {
   title: string;
@@ -156,7 +157,7 @@ const Sidebar: FC = () => {
         <div
           className={`${
             mobileMenu ? "flex" : "hidden"
-          } absolute z-50 flex-col items-center self-end py-8 mt-16 space-y-6 font-bold sm:w-auto left-6 right-6 dark:text-white  bg-gray-50 dark:bg-slate-800 drop-shadow md rounded-xl`}
+          } absolute z-50 flex-col items-start pl-10 self-end py-8 mt-16 space-y-6 font-bold sm:w-auto left-6 right-6 dark:text-white  bg-gray-50 dark:bg-slate-800 drop-shadow md rounded-xl`}
         >
           {Menus.map((menu, index) => (
             <Link
@@ -170,10 +171,11 @@ const Sidebar: FC = () => {
                   "bg-gray-200 dark:bg-gray-700"
                 } p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700`}
               >
-                {menu.title}
+                {t(menu.title)}
               </span>
             </Link>
           ))}
+          <Profile />
         </div>
       </div>
     </>

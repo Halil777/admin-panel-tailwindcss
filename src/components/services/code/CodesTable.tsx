@@ -79,9 +79,7 @@ const CodesTable: React.FC<TableProps> = ({
           theme === "dark" ? "dark:text-white" : ""
         }`}
       >
-        <span className={theme === "dark" ? "dark:text-white" : ""}>
-          Codes Table
-        </span>
+        <span className="dark:text-white text-2xl">Codes Table</span>
         <button
           type="button"
           className="py-2 px-4 rounded border border-gray-400 text-gray-400 dark:text-white dark:border-white"
