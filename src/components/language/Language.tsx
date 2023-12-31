@@ -9,24 +9,16 @@ const Language: FC = () => {
   };
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-2 relative">
       <select
         id="languageSelect"
-        className="px-2 py-1 border rounded-md outline-none cursor-pointer"
+        className="px-2 py-1 border rounded-md outline-none cursor-pointer appearance-none"
         onChange={(e) => changeLanguage(e.target.value)}
         value={i18n.language}
       >
-        <option value="en">
-          <div className="flex items-center space-x-10">
-            English <img src="./us.svg" alt="" />
-          </div>
-        </option>
-        <option value="ru">
-          Русский <img src="./ru.svg" alt="" />
-        </option>
-        <option value="tm">
-          Türkmençe <img src="./uk.svg" alt="" />
-        </option>
+        <option value="en">EN</option>
+        <option value="ru">Ру</option>
+        <option value="tm">TM</option>
       </select>
     </div>
   );

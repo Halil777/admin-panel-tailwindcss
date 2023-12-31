@@ -14,16 +14,16 @@ const Toggle: React.FC<ToggleProps> = () => {
   const { theme, setTheme } = context;
 
   return (
-    <div className="transition ease-in-out duration-500 rounded-full p-2">
+    <div className="transition ease-in-out duration-500 rounded-full p-2 bg-gray-200">
       {theme === "dark" ? (
         <FaSun
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="text-gray-500 text-2xl dark:text-gray-400 cursor-pointer"
+          className="text-gray-500 text-xl dark:text-gray-400 cursor-pointer"
         />
       ) : (
         <FaMoon
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="text-gray-500 text-2xl dark:text-gray-400 cursor-pointer"
+          className="text-gray-500 text-xl dark:text-gray-400 cursor-pointer"
         />
       )}
     </div>

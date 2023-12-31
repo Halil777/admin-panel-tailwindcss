@@ -84,7 +84,7 @@ const CodesTable: React.FC<TableProps> = ({
         </span>
         <button
           type="button"
-          className="py-2 px-4 rounded border-gray-400 text-gray-400"
+          className="py-2 px-4 rounded border border-gray-400 text-gray-400 dark:text-white dark:border-white"
           onClick={() => navigate("/add-code")}
         >
           + Add Test
