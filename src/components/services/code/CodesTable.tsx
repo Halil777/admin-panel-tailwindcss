@@ -70,12 +70,12 @@ const CodesTable: React.FC<TableProps> = ({
 
   return (
     <div
-      className={`p-10 ${
+      className={`py-10 ${
         theme === "dark" ? "bg-light text-dark" : "bg-dark text-light"
       } rounded-2xl shadow-lg dark:bg-gray-800 dark:shadow-2xl bg-white`}
     >
       <div
-        className={`flex justify-between align-center mb-5 ${
+        className={`px-10 flex justify-between align-center mb-5 ${
           theme === "dark" ? "dark:text-white" : ""
         }`}
       >
@@ -92,29 +92,19 @@ const CodesTable: React.FC<TableProps> = ({
         <table
           className={`w-full  ${
             theme === "dark" ? "bg-light" : "bg-dark"
-          } border border-gray-300`}
+          } border border-gray-300 border-r-0 border-l-0 `}
         >
-          <thead>
+          <thead className="dark:bg-gray-800 bg-gray-50 dark:text-white">
             <tr>
-              <th
-                className={`py-2 px-4 w-40 border-b text-center  ${
-                  theme === "dark" ? "dark:text-white" : ""
-                }`}
-              >
+              <th className={`py-2 px-10 w-40 border-b text-start  `}>
                 {t("table.code")}
               </th>
-              <th
-                className={`py-2 px-4 w-48 border-b text-center  ${
-                  theme === "dark" ? "dark:text-white" : ""
-                }`}
-              >
+              <th className={`py-2 px-4 w-48 border-b text-center  `}>
                 {t("table.title")}
               </th>
 
               <th
-                className={` py-2 sticky top-0  z-10 px-4 border-b w-56 text-center  ${
-                  theme === "dark" ? "dark:text-white" : ""
-                }`}
+                className={` py-2 sticky top-0  z-10  border-b w-56 text-end pr-24  `}
               >
                 {t("table.actions")}
               </th>
@@ -131,7 +121,7 @@ const CodesTable: React.FC<TableProps> = ({
                   onClick={(e) => handleRowClick(e, item.id)}
                 >
                   <td
-                    className={`py-2 px-4 border-b text-center  ${
+                    className={`py-2 px-10 border-b text-start  ${
                       theme === "dark" ? "dark:text-white" : ""
                     }`}
                   >
@@ -146,11 +136,11 @@ const CodesTable: React.FC<TableProps> = ({
                   </td>
 
                   <td
-                    className={`py-2 px-4   border-b  ${
+                    className={`py-2 px-10   border-b  ${
                       theme === "dark" ? "dark:text-white" : ""
                     }`}
                   >
-                    <div className="flex gap-3 justify-center ">
+                    <div className="flex gap-3 justify-end ">
                       <button
                         className="bg-blue-500 text-white py-1 px-2 mr-2 rounded"
                         onClick={() => {
@@ -183,7 +173,7 @@ const CodesTable: React.FC<TableProps> = ({
                         // className={`${theme === "dark" ? "bg-gray-100" : ""}`}
                       >
                         <td
-                          className={`py-2 px-4 border-b text-center  bg-yellow-100`}
+                          className={`py-2 px-10 border-b text-start  bg-yellow-100`}
                         >
                           {subItem.code}
                         </td>
@@ -194,7 +184,7 @@ const CodesTable: React.FC<TableProps> = ({
                         </td>
 
                         <td
-                          className={`py-2 px-4 border-b text-center  bg-yellow-100`}
+                          className={`py-2 px-10 border-b text-end  bg-yellow-100`}
                         >
                           <button
                             className="bg-blue-500 text-white py-1 px-2 mr-2 rounded"

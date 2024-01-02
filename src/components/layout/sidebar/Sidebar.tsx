@@ -1,7 +1,7 @@
 import { useState, FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
-import { AiFillPieChart } from "react-icons/ai";
+import { MdOutlinePieChart } from "react-icons/md";
 import { HiOutlineHome } from "react-icons/hi";
 import { CgProfile } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
@@ -29,7 +29,11 @@ const Sidebar: FC = () => {
   const { t } = useTranslation();
 
   const Menus: MenuItem[] = [
-    { title: "sidebar.dashboard", path: "/dashboard", src: <AiFillPieChart /> },
+    {
+      title: "sidebar.dashboard",
+      path: "/dashboard",
+      src: <MdOutlinePieChart />,
+    },
     { title: "sidebar.home", path: "/", src: <HiOutlineHome /> },
     { title: "sidebar.profile", path: "/profile", src: <CgProfile /> },
     { title: "sidebar.codes", path: "/codes", src: <FaCode /> },

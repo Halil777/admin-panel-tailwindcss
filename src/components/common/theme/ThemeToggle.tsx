@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { MdOutlineWbSunny } from "react-icons/md";
 import { ThemeContext } from "./ThemeContext";
+import { BsMoon } from "react-icons/bs";
 
 interface ToggleProps {}
 
@@ -16,12 +17,12 @@ const Toggle: React.FC<ToggleProps> = () => {
   return (
     <div className="transition ease-in-out duration-500 rounded-full p-2 bg-gray-200">
       {theme === "dark" ? (
-        <FaSun
+        <MdOutlineWbSunny
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="text-gray-500 text-xl dark:text-gray-400 cursor-pointer"
         />
       ) : (
-        <FaMoon
+        <BsMoon
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="text-gray-500 text-xl dark:text-gray-400 cursor-pointer"
         />

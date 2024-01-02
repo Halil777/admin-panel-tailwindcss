@@ -1,128 +1,55 @@
 import { FC } from "react";
 import CodesTable from "../../../components/services/code/CodesTable";
 
-const Codes: FC = () => {
-  const tableData = [
-    {
-      id: 1,
-      code: "ABC",
-      title: "Example Title",
-      description: "Lorem ipsum",
-      shortName: "AB",
-      parentId: 0,
+const generateRandomCode = () => {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const codeLength = 6;
+  let randomCode = "#";
+  for (let i = 0; i < codeLength; i++) {
+    randomCode += characters.charAt(
+      Math.floor(Math.random() * characters.length)
+    );
+  }
+  return randomCode;
+};
 
-      subItems: [
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-      ],
-    },
-    {
-      id: 2,
-      code: "Def",
-      title: "Example Title 2",
-      description: "Lorem ipsum dolor",
-      shortName: "DE",
-      parentId: 1,
-      subItems: [
-        {
-          id: 5,
-          code: "LMN",
-          title: "SubItem Title 2",
-          description: "SubItem Description 2",
-          shortName: "LM",
-          parentId: 2,
-        },
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-      ],
-    },
-    {
-      id: 3,
-      code: "GHI",
-      title: "Example Title 3",
-      description: "Lorem ipsum semit",
-      shortName: "GH",
-      parentId: 2,
-      subItems: [
-        {
-          id: 6,
-          code: "OPQ",
-          title: "SubItem Title 3",
-          description: "SubItem Description 3",
-          shortName: "OP",
-          parentId: 3,
-        },
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-        {
-          id: 4,
-          code: "XYZ",
-          title: "SubItem Title 1",
-          description: "SubItem Description 1",
-          shortName: "XY",
-          parentId: 1,
-        },
-      ],
-    },
-  ];
+const generateRandomData = () => {
+  const numberOfItems = 4;
+  const numberOfSubItems = 7;
+
+  const generateRandomSubItems = () => {
+    const subItems = [];
+    for (let j = 0; j < numberOfSubItems; j++) {
+      subItems.push({
+        id: Math.floor(Math.random() * 1000),
+        code: generateRandomCode(),
+        title: `SubItem Title ${j + 1}`,
+        description: `SubItem Description ${j + 1}`,
+        shortName: generateRandomCode(),
+        parentId: 1,
+      });
+    }
+    return subItems;
+  };
+
+  const data = [];
+  for (let i = 0; i < numberOfItems; i++) {
+    data.push({
+      id: Math.floor(Math.random() * 1000),
+      code: generateRandomCode(),
+      title: `Example Title ${i + 1}`,
+      description: "Lorem ipsum",
+      shortName: generateRandomCode(),
+      parentId: 0,
+      subItems: generateRandomSubItems(),
+    });
+  }
+
+  return data;
+};
+
+const Codes: FC = () => {
+  const tableData = generateRandomData();
 
   const handleEdit = (id: number) => {
     console.log(`Edit item with ID ${id}`);
